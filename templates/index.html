@@ -12,7 +12,10 @@
 <body>
 	<form class="button_form" action="#" method="post">
 		{% for button in buttons %}
-			
+			<button type=submit name="button" value="{{button[0]}}|{{button[2]}}" class="button">
+				<p class="buttonName">{{ button[0] }}</p>
+				<img class="buttonIcon" src="{{ url_for('static', filename=button[1]) }}">
+			</button>
 		{% endfor %}
-	<form>
+	</form>
 </body>

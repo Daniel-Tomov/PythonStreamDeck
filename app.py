@@ -2,14 +2,14 @@ from flask import Flask, jsonify, render_template, request
 import webbrowser
 import time
 from playsound import playsound
-from obsRequests import ws, loop, make_request, mute_audio_request, unmute_audio_request, get_request 
-from yml import data
+from obsRequests import ws, loop, make_request, mute_audio_request, unmute_audio_request
+from yml import items
 app = Flask(__name__)
+
 
 for i in range(0,3): print('')
 print('OBS control like a Strem Deck by Daniel Tomov')
 print('https://github.com/daniel-tomov/pythonstreamdeck')
-print(data)
 for i in range(0,3): print('')
 
 
@@ -21,27 +21,25 @@ def stuff():
     else:
         return jsonify(VAIOM='True')
     return jsonify(VAIOM='True')
+
+
 @app.route('/', methods=["POST", "GET"])
 def index():
     if request.method == "POST":
-        if (request.form['button'] == 'button1'):
-            loop.run_until_complete(make_request('scene-name', 'Game Recording', 'SetCurrentScene'))
-        if (request.form['button'] == 'button2'):
-            loop.run_until_complete(make_request('scene-name', 'Camera', 'SetCurrentScene'))
-        if (request.form['button'] == 'button3'):
-            loop.run_until_complete(make_request('scene-name', 'AFK', 'SetCurrentScene'))
-        if (request.form['button'] == 'button4'):
-            loop.run_until_complete(make_request('scene-name', 'Desktop Recording', 'SetCurrentScene'))
+        command = request.form['button'].split("|")
+        if command[1] == "scene":
+            loop.run_until_complete(make_request({'scene-name':command[0]}, 'SetCurrentScene'))
+        elif command[1] == "source":
+            visibility = not loop.run_until_complete(make_request({'item': command[0]}, 'GetSceneItemProperties'))['visible']
+            loop.run_until_complete(make_request({'item':command[0],'visible':visibility}, 'SetSceneItemProperties'))
         if (request.form['button'] == 'button5U'):
             loop.run_until_complete(unmute_audio_request('VAIO', 'SetVolume'))
         if (request.form['button'] == 'button5M'):
-            loop.run_until_complete(mute_audio_request( 'VAIO', 'SetVolume'))
-    result = float(loop.run_until_complete(get_request('source', 'VAIO', 'GetVolume')))
-    if result < 0.1:
-        return render_template('index.html', VAIOM='False')
+            loop.run_until_complete(mute_audio_request( 'VAIO', 'SetVolume'))#
+        return render_template('index.html', buttons=items)
+    #result = float(loop.run_until_complete(get_request('source', 'VAIO', 'GetVolume')))
     else:
-        return render_template('index.html', VAIOM='True')
-    #return render_template('index.html')
+        return render_template('index.html', buttons=items)
 
     
 if __name__ == "__main__":

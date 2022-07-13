@@ -7,23 +7,29 @@
 # the amount of images on a page will vary the loading times
 # The quality of the images will also change loading times
 
-
-scenes:
- - Camera:
-   - img: camera.png
- - AFK:
-   - img: afk.png
- - Desktop Recording:
-   - img: desktop.png
- - Game Recording:
-   - img: game.png
-
-sources:
- - VAIO:
-   - img: mic.png
-   - min: 0
-   - max: 1
- - Chrome:
-   - img: chrome.png
- - Text:
-   - img: text.png
+Camera:
+  img: camera.png
+  type: scene
+AFK:
+  img: afk.png
+  type: scene
+Desktop Recording:
+  img: desktop.png
+  type: scene
+Game Recording:
+  img: game.png
+  type: scene
+VAIO:
+  img: mic.png
+  type: source
+  min: 0
+  max: 1
+Chrome:
+  img: chrome.png
+  type: source
+Text:
+  img: text.jpg
+  type: source
+Webcam:
+  img: camera.png
+  type: source
