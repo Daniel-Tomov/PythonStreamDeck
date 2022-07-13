@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="HTML,CSS,JavaScript">
+		<meta name="author" content="Daniel Tomov">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
+		<title>Elgato Stream Deck</title>
+	</head>
+{% extends "dy0.html" %}
+{% block body %}
+
+<!--<script type="text/javascript">
+var intervalID = setInterval(update_values, 400000000);
+
+  function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/_stuff',
+               
+      function(data) {
+		$('#button5M').css("background-color", "red");
+		$('#button5M').css("background-color", "red");
+      });
+      
+    };
+   
+    
+    
+    function stopTextColor() {
+      clearInterval(intervalID);
+    }
+    
+</script>
+<body onload="update_values();"> -->
+<body onload="update_values();">
+	<form class="button_form" action="#" method="post">
+		<button type=submit class="button" name="button" value="button1"><p class="buttonName">Game Recording</p><p class="buttonIcon">&#127918;</p></button>
+		<button type=submit class="button" name="button" value="button2"><p class="buttonName">Camera</p><p class="buttonIcon">&#128247;</p></button>
+		<button type=submit class="button" name="button" value="button3"><p class="buttonName">AFK</p><p class="buttonIcon">&#128680;</p></button>
+		<button type=submit class="button" name="button" value="button4"><p class="buttonName">Desktop Recording</p><p class="buttonIcon">&#128421;</p></button>
+		{% if VAIOM == 'False' %}
+			<button type=submit class="button" name="button" style="background-color: red;" value="button5U"><p class="buttonName">Toggle Microphone</p><p class="buttonIcon">&#127908;</p></button>
+		{% elif VAIOM == 'True' %}
+			<button type=submit class="button" name="button" style="background-color: green;" value="button5M"><p class="buttonName">Toggle Microphone</p><p class="buttonIcon">&#127908;</p></button>
+		{% endif %}
+	<form>
+	</body>
+{% endblock %}
