@@ -22,6 +22,12 @@ Game Recording:
 VAIO:
   img: mic.png
   type: source
+# Include these to get a slider in the gui
+# min is the minimum you want the audio source to go
+# This should be the quietest you want to be heard on your recording / stream
+# max is the maximum you want the audio source to go
+# This should be the loudest you want to be heard on your recording / stream
+# the max should ideally not have your audio clip. Your decision though
   min: 0
   max: 1
 Chrome:
