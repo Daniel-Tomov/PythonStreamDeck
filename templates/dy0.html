@@ -6,3 +6,28 @@
   var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
 {% block body %}{% endblock %}
+
+{% extends "dy0.html" %}
+{% block body %}
+
+<!--<script type="text/javascript">
+var intervalID = setInterval(update_values, 400000000);
+
+  function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/_stuff',
+               
+      function(data) {
+		$('#button5M').css("background-color", "red");
+		$('#button5M').css("background-color", "red");
+      });
+      
+    };
+   
+    
+    
+    function stopTextColor() {
+      clearInterval(intervalID);
+    }
+    
+</script>
+<body onload="update_values();"> -->

@@ -1,0 +1,29 @@
+# Example file by Daniel Tomov
+
+# This file is split into two sections: "scenes" and "sources"
+# Inside each, there is the name of the scene / source and some attributes
+# Each item has an "img" attribute. The image is pulled from the "img" folder
+# The images have to be ".png" or ".jpg". Keep in mind that
+# the amount of images on a page will vary the loading times
+# The quality of the images will also change loading times
+
+
+scenes:
+ - Camera:
+   - img: camera.png
+ - AFK:
+   - img: afk.png
+ - Desktop Recording:
+   - img: desktop.png
+ - Game Recording:
+   - img: game.png
+
+sources:
+ - VAIO:
+   - img: mic.png
+   - min: 0
+   - max: 1
+ - Chrome:
+   - img: chrome.png
+ - Text:
+   - img: text.png

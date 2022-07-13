@@ -3,10 +3,16 @@ import webbrowser
 import time
 from playsound import playsound
 from obsRequests import ws, loop, make_request, mute_audio_request, unmute_audio_request, get_request 
-
+from yml import data
 app = Flask(__name__)
 
- 
+for i in range(0,3): print('')
+print('OBS control like a Strem Deck by Daniel Tomov')
+print('https://github.com/daniel-tomov/pythonstreamdeck')
+print(data)
+for i in range(0,3): print('')
+
+
 @app.route('/_stuff', methods = ['GET'])
 def stuff():
     result = int(loop.run_until_complete(get_request('source', 'VAIO', 'GetVolume'))) + 1
