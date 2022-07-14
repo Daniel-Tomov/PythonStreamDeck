@@ -33,6 +33,3 @@ VAIO:
 Chrome:
   img: chrome.png
   type: source
-Text:
-  img: text.jpg
-  type: source
