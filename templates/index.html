@@ -1,3 +1,7 @@
+<!--    PythonStreamDeck, a control panel for OBS in html using obs-websocket and simpleobsws -->
+<!--   Copyright (C) 2022  Daniel Tomov-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -12,10 +16,32 @@
 <body>
 	<form class="button_form" action="#" method="post">
 		{% for button in buttons %}
-			<button type=submit name="button" value="{{button[0]}}|{{button[2]}}" class="button">
-				<p class="buttonName">{{ button[0] }}</p>
-				<img class="buttonIcon" src="{{ url_for('static', filename=button[1]) }}">
-			</button>
+			{% if button[3] == 'disabled' and button[2] == 'source' %}
+				<button type=submit name="button" value="{{button[0]}}|{{button[2]}}" class="source_Disabled" disabled>
+					<p class="buttonName">{{ button[0] }}</p>
+					<img class="buttonIcon" src="{{ url_for('static', filename=button[1]) }}">
+				</button>				
+			{% elif button[3] == False and button[2] == 'source' %}
+				<button type=submit name="button" value="{{button[0]}}|{{button[2]}}" class="source_NotActive">
+					<p class="buttonName">{{ button[0] }}</p>
+					<img class="buttonIcon" src="{{ url_for('static', filename=button[1]) }}">
+				</button>
+			{% elif button[3] == True  and button[2] == 'source' %}
+				<button type=submit name="button" value="{{button[0]}}|{{button[2]}}" class="source_Active">
+					<p class="buttonName">{{ button[0] }}</p>
+					<img class="buttonIcon" src="{{ url_for('static', filename=button[1]) }}">
+				</button>
+			{% elif button[3] == False  and button[2] == 'scene' %}
+				<button type=submit name="button" value="{{button[0]}}|{{button[2]}}" class="scene_NotActive">
+					<p class="buttonName">{{ button[0] }}</p>
+					<img class="buttonIcon" src="{{ url_for('static', filename=button[1]) }}">
+				</button>
+			{% elif button[3] == True  and button[2] == 'scene' %}
+				<button type=submit name="button" value="{{button[0]}}|{{button[2]}}" class="scene_Active">
+					<p class="buttonName">{{ button[0] }}</p>
+					<img class="buttonIcon" src="{{ url_for('static', filename=button[1]) }}">
+				</button>
+			{% endif %}
 		{% endfor %}
 	</form>
 </body>

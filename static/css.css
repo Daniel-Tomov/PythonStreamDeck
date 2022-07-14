@@ -1,12 +1,35 @@
+/*    PythonStreamDeck, a control panel for OBS in html using obs-websocket and simpleobsws */
+/*   Copyright (C) 2022  Daniel Tomov*/
+
+
+
+
 html, body, p, a{
 	margin:0;
 	padding:0;
 	text-decoration:none;
 }
 
-.button{
+.source_Active{
 	width:200px;
 	height:200px;
+	background-color:green;
+}.source_NotActive{
+	width:200px;
+	height:200px;
+	background-color:red;
+}.source_Disabled{
+	width:200px;
+	height:200px;
+	background-color:gray;
+}.scene_Active{
+	width:200px;
+	height:200px;
+	background-color:blue;
+}.scene_NotActive{
+	width:200px;
+	height:200px;
+	background-color:yellow;
 }
 
 .buttonIcon{

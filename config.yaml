@@ -1,5 +1,4 @@
-#    PythonStreamDeck, a control panel for OBS in html using obs-websocket and simpleobsws
-#    Copyright (C) 2022  Daniel Tomov
+# Example file by Daniel Tomov
 
 # This file is split into two sections: "scenes" and "sources"
 # Inside each, there is the name of the scene / source and some attributes
