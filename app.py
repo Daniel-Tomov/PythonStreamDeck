@@ -5,7 +5,7 @@
 from flask import Flask, jsonify, render_template, request
 import webbrowser
 import time
-from playsound import playsound
+#from playsound import playsound
 from obsRequests import ws, loop, make_request, get_items
 from yml import items
 app = Flask(__name__)

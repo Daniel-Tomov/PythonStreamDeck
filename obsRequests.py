@@ -5,12 +5,12 @@
 
 
 import asyncio
-import simpleobsws
+from simpleobsws import simpleobsws
 from yml import items
 from time import sleep
 
 loop = asyncio.get_event_loop()
-ws = simpleobsws.obsws(host='127.0.0.1', port=4444, password='', loop=loop) # Every possible argument has been passed, but none are required. See lib code for defaults.
+ws = simpleobsws.obsws(host='127.0.0.1', port=4444, password='xViZuAgPWTJbSwVK', loop=loop) # Every possible argument has been passed, but none are required. See lib code for defaults.
 
 
 async def make_request(command, data={}):

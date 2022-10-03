@@ -13,10 +13,16 @@ Camera:
 AFK:
   img: afk.png
   type: scene
-Desktop Recording:
+End:
+  img: afk.png
+  type: scene
+Begin:
+  img: afk.png
+  type: scene
+Desktop:
   img: desktop.png
   type: scene
-Game Recording:
+Game:
   img: game.png
   type: scene
 VAIO:
